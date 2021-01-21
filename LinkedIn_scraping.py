@@ -35,7 +35,7 @@ driver.get('https:www.google.com')
 sleep(3)
 
 search_query = driver.find_element_by_name('q')
-search_query.send_keys(parameters.search_query)
+search_query.send_keys('site:linkedin.com/in/ AND "python developer" AND "London"')
 sleep(0.5)
 
 search_query.send_keys(Keys.RETURN)
