@@ -41,3 +41,8 @@ sleep(0.5)
 search_query.send_keys(Keys.RETURN)
 sleep(3)
 
+Linkedin_url = driver.find_elements_by_tag_name('cite')
+linkedin_urls = [url.text for url in linkedin_urls]
+sleep(0.5)
+
+driver.quit()
