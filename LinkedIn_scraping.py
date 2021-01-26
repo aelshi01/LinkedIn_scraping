@@ -3,6 +3,7 @@ from time import sleep
 import csv
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from parsel import Selector
 
 
 # defining new variable passing two parameters
@@ -41,8 +42,16 @@ sleep(0.5)
 search_query.send_keys(Keys.RETURN)
 sleep(3)
 
-Linkedin_url = driver.find_elements_by_tag_name('cite')
+linkedin_url = driver.find_elements_by_tag_name('cite')
 linkedin_urls = [url.text for url in linkedin_urls]
 sleep(0.5)
+
+
+for linkedin_url in linkedin_urls:
+    driver.get(linkedin_url)
+    sleep(5)
+
+    sel = Selector(text = driver.page_source)
+
 
 driver.quit()
